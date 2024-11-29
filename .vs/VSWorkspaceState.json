@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DatabaseScripts",
+    "\\dataqboxbackend",
+    "\\dataqboxbackend\\Controllers",
+    "\\dataqboxbackend\\Data",
+    "\\dataqboxbackend\\Models",
+    "\\dataqboxbackend\\Properties"
+  ],
+  "SelectedNode": "\\dataqboxbackend\\Properties\\launchSettings.json",
+  "PreviewInSolutionExplorer": false
+}

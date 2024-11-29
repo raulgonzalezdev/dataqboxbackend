@@ -1,0 +1,30 @@
+# Archivos de compilación
+bin/
+obj/
+
+# Archivos de usuario
+*.user
+*.suo
+*.sln.ide
+
+# Archivos de configuración de Visual Studio
+.vs/
+*.vscode/
+
+# Archivos de configuración de Rider
+.idea/
+
+# Archivos de caché
+*.db
+*.log
+
+# Archivos de paquetes
+*.nupkg
+packages/
+
+# Archivos de entorno
+.env
+*.env
+
+# Archivos de publicación
+publish/

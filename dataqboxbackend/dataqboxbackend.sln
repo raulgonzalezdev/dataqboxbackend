@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dataqboxbackend", "dataqboxbackend.csproj", "{7CBB2D68-3C21-4BA7-8239-20C71739ABE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CBB2D68-3C21-4BA7-8239-20C71739ABE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CBB2D68-3C21-4BA7-8239-20C71739ABE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CBB2D68-3C21-4BA7-8239-20C71739ABE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CBB2D68-3C21-4BA7-8239-20C71739ABE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8D55A4E-2C81-4ABF-BE3B-6F7E4582D1F6}
+	EndGlobalSection
+EndGlobal
