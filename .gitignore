@@ -1,7 +1,11 @@
+# Excluir los directorios bin y obj dentro de dataqboxbackend
+/dataqboxbackend/bin/
+/dataqboxbackend/obj/
+/dataqboxbackend/appsettings.json
+
 # Archivos de compilación
-dataqboxbackend/bin/
+bin/
 obj/
-dataqboxbackend/obj/
 
 # Archivos de usuario
 *.user
