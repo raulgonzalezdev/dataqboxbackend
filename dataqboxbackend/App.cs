@@ -7,6 +7,8 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Linq;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,9 +68,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Agregar controladores y servicios adicionales
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Configurar Swagger con un filtro para ocultar endpoints
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+
+    // Agregar filtro para ocultar endpoints marcados con un atributo personalizado
+    c.DocumentFilter<HideInProductionFilter>();
 });
 
 // Configuración de sesión
@@ -85,12 +92,16 @@ app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseSession();
 
-app.UseSwagger();
-app.UseSwaggerUI(c =>
+// Configurar Swagger para mostrar u ocultar según el entorno
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
-    c.RoutePrefix = string.Empty;
-});
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+        c.RoutePrefix = string.Empty;
+    });
+}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
@@ -101,3 +112,30 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// Clase para ocultar endpoints en producción
+public class HideInProductionFilter : IDocumentFilter
+{
+    public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
+    {
+        // Eliminar las rutas marcadas con el atributo `[HideInProduction]`
+        var pathsToRemove = swaggerDoc.Paths
+            .Where(p => p.Value.Operations.Values.Any(op =>
+                op.Extensions.ContainsKey("x-hide-in-production") &&
+                bool.Parse(op.Extensions["x-hide-in-production"].ToString() ?? "false")))
+            .Select(p => p.Key)
+            .ToList();
+
+        foreach (var path in pathsToRemove)
+        {
+            swaggerDoc.Paths.Remove(path);
+        }
+    }
+}
+
+// Atributo personalizado para marcar los endpoints
+[AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+public class HideInProductionAttribute : Attribute
+{
+    public bool Hide { get; set; } = true;
+}

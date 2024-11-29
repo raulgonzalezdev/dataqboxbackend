@@ -11,6 +11,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 using System.Net;
 using Microsoft.IdentityModel.Tokens;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.OpenApi.Models;
+
 
 [Route("api/[controller]")]
 [ApiController]
@@ -27,6 +30,7 @@ public class AuthController : ControllerBase
 
     // Método para registrar un nuevo usuario
     [HttpPost("register")]
+    [HideInProduction]
     public IActionResult Register([FromBody] UserRegisterDto userRegister)
     {
         // Verificar si el correo electrónico ya existe
@@ -63,6 +67,7 @@ public class AuthController : ControllerBase
 
     // Método para iniciar sesión
     [HttpPost("login")]
+    [HideInProduction]
     public IActionResult Login([FromBody] UserLoginDto userLogin)
     {
         var user = _context.Usuarios.SingleOrDefault(u => u.Email == userLogin.Email);

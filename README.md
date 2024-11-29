@@ -7,7 +7,7 @@ Este proyecto es una API construida con ASP.NET Core. A continuación, se detall
 ### Requisitos Previos
 
 - [Visual Studio 2022](https://visualstudio.microsoft.com/vs/) o [Visual Studio Code](https://code.visualstudio.com/)
-- [.NET SDK 6.0 o superior](https://dotnet.microsoft.com/download)
+- [.NET SDK 9.0 o superior](https://dotnet.microsoft.com/download)
 - [Redis](https://redis.io/download) (opcional, si se utiliza Redis)
 - [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (o cualquier otro motor de base de datos que estés utilizando)
 
@@ -148,6 +148,15 @@ docker-compose up --build
 ```
 
 La aplicación estará disponible en `http://localhost:5000`.
+
+
+### Ejecución en Producción
+
+Para ejecutar la aplicación en producción con parámetros específicos, utiliza el siguiente comando:
+
+```bash
+dotnet C:\Users\Dell\Dropbox\BackendNetCore\dataqboxbackend\bin\Release\net9.0\dataqboxbackend.dll --urls "https://localhost:7174;http://localhost:5088"
+```
 
 ## Contribuciones
 

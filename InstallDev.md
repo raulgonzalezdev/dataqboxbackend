@@ -123,7 +123,7 @@ La aplicación estará disponible en `http://localhost:5000`.
 Para ejecutar la aplicación en producción con parámetros específicos, utiliza el siguiente comando:
 
 ```bash
-dotnet C:\Users\Dell\Dropbox\BackendNetCore\dataqboxbackend\Release\dataqboxbackend.dll --urls "https://localhost:7174;http://localhost:5088"
+dotnet C:\Users\Dell\Dropbox\BackendNetCore\dataqboxbackend\bin\Release\net9.0\dataqboxbackend.dll --urls "https://localhost:7174;http://localhost:5088"
 ```
 
 Esto iniciará la aplicación en los puertos especificados.
