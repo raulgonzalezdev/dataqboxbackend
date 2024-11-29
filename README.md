@@ -20,6 +20,8 @@ Este proyecto es una API construida con ASP.NET Core. A continuación, se detall
    cd dataqboxbackend
    ```
 
+ Reenombra el arcvivo: appsettingsSAMPLE.json  por appsettings.json   y actualiza los datos de la base de datos y tus claves de API 
+
 2. Restaura las dependencias del proyecto:
 
    ```bash
