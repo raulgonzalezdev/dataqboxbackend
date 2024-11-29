@@ -1,7 +1,7 @@
 # Archivos de compilación
-/dataqboxbackend/bin/
+dataqboxbackend/bin/
 obj/
-/dataqboxbackend/obj/
+dataqboxbackend/obj/
 
 # Archivos de usuario
 *.user
